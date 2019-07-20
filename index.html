@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Nintendo Switch Interface</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Nintendo Switch</title>
 </head>
 <body>
-        
+    <div id="container">
+        <div id="header">
+            <div id="avatar-position">
+                <img src="/img/avatar1.png" alt="Avatar" class="avatar">
+                <img src="/img/avatar2.png" alt="Avatar" class="avatar">
+                <img src="/img/avatar3.png" alt="Avatar" class="avatar">
+            </div>
+            <span class="btn-option">
+                    <a href="#" class="btn btn-warning btn-lg">
+                    <span class="glyphicon glyphicon-people"></span> ON</a>
+            </span>
+            <span id="sys-icons"><div id="clock" onload="showTime()"></span>    
+        </div>
+    </div>
 </body>
+<script type="text/javascript">
+    function showTime(){
+            var time = new Date();
+            var hr = time.getHours();
+            var min = time.getMinutes();
+            var sec = time.getSeconds();
+            var am_pm = "AM";
+    
+            if(hr > 12){hr-=12;}
+            am_pm = "PM";
+            if(hr == 0){hr = 12;}
+    
+            hr = (hr<10) ? "0"+hr : hr;
+            min = (min<10) ? "0"+min : min;
+            sec = (sec<10) ? "0"+sec : sec;
+    
+            var currentTime = hr + ":" + min + ":" + sec + " " + am_pm ;
+            document.getElementById("clock").innerHTML = currentTime;
+            setTimeout(showTime, 1000);
+        }
+    showTime();
+    </script>
 </html>
